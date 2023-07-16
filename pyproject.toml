@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "gismeteo-mobile"
+version = "0.1.0"
+description = "Tests of mobile GisMeteo application"
+authors = ["Aleksandr Zavialov"]
+readme = "README.md"
+packages = [{include = "gismeteo_mobile"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pytest = ">=7.4.0"
+pydantic = "1.10.9"
+selene = ">=2.0.0rc2"
+allure-pytest = ">=2.13.2"
+Appium-Python-Client = ">=2.11.1"
+requests = ">=2.28.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

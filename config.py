@@ -1,14 +1,13 @@
 import pydantic
 from appium.options.android import UiAutomator2Options
-from typing import Literal, Optional
+from typing import Optional
 
-from python_wikipedia_mobile import utils
-
-EnvContext = Literal['real', 'emulation', 'browserstack']
+from python_gismeteo_mobile import utils
+from python_gismeteo_mobile.utils import file
 
 
 class Settings(pydantic.BaseSettings):
-    context: EnvContext = 'browserstack'
+    context = 'emulation'
 
     # --- Appium Capabilities ---
     platformName: str = None
@@ -34,9 +33,6 @@ class Settings(pydantic.BaseSettings):
     # --- Selene ---
     timeout: float = 6.0
 
-    @property
-    def run_on_browserstack(self):
-        return 'hub.browserstack.com' in self.remote_url
 
     @property
     def driver_options(self):
@@ -55,19 +51,6 @@ class Settings(pydantic.BaseSettings):
             options.udid = self.udid
         if self.appWaitActivity:
             options.app_wait_activity = self.appWaitActivity
-        if self.run_on_browserstack:
-            options.load_capabilities(
-                {
-                    'platformVersion': self.platformVersion,
-                    'bstack:options': {
-                        'projectName': self.projectName,
-                        'buildName': self.buildName,
-                        'sessionName': self.sessionName,
-                        'userName': self.userName,
-                        'accessKey': self.accessKey,
-                    },
-                }
-            )
 
         return options
 
@@ -85,3 +68,4 @@ class Settings(pydantic.BaseSettings):
 
 
 settings = Settings.in_context()
+
