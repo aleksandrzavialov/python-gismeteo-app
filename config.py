@@ -55,14 +55,15 @@ class Settings(pydantic.BaseSettings):
         return options
 
     @classmethod
-    def in_context(cls, env: Optional[EnvContext] = None) -> 'Settings':
+    def in_context(cls) -> 'Settings':
         """
         factory method to init Settings with values from corresponding .env file
         """
-        asked_or_current = env or cls().context
+        #asked_or_current = env or cls().context
         return cls(
             _env_file=utils.file.abs_path_from_project(
-                f'config.{asked_or_current}.env'
+                #f'config.{asked_or_current}.env'
+                'config.env'
             )
         )
 
