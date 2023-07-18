@@ -1,7 +1,6 @@
 import pydantic
 from appium.options.android import UiAutomator2Options
 from typing import Optional, Literal
-
 from python_gismeteo_mobile import utils
 from python_gismeteo_mobile.utils import file
 
@@ -9,7 +8,7 @@ EnvContext = Literal['emulation', 'browserstack']
 
 
 class Settings(pydantic.BaseSettings):
-    context: EnvContext = 'emulation'
+    context: EnvContext = 'browserstack'
 
     platformName: str = None
     platformVersion: str = None
