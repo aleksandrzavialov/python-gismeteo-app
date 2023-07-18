@@ -1,15 +1,16 @@
 import pydantic
 from appium.options.android import UiAutomator2Options
-from typing import Optional
+from typing import Optional, Literal
 
 from python_gismeteo_mobile import utils
 from python_gismeteo_mobile.utils import file
 
+EnvContext = Literal['emulation', 'browserstack']
+
 
 class Settings(pydantic.BaseSettings):
-    context = 'emulation'
+    context: EnvContext = 'emulation'
 
-    # --- Appium Capabilities ---
     platformName: str = None
     platformVersion: str = None
     deviceName: str = None
@@ -33,6 +34,9 @@ class Settings(pydantic.BaseSettings):
     # --- Selene ---
     timeout: float = 6.0
 
+    @property
+    def run_on_browserstack(self):
+        return 'hub.browserstack.com' in self.remote_url
 
     @property
     def driver_options(self):
@@ -51,19 +55,28 @@ class Settings(pydantic.BaseSettings):
             options.udid = self.udid
         if self.appWaitActivity:
             options.app_wait_activity = self.appWaitActivity
+        if self.run_on_browserstack:
+            options.load_capabilities(
+                {
+                    'platformVersion': self.platformVersion,
+                    'bstack:options': {
+                        'projectName': self.projectName,
+                        'buildName': self.buildName,
+                        'sessionName': self.sessionName,
+                        'userName': self.userName,
+                        'accessKey': self.accessKey,
+                    },
+                }
+            )
 
         return options
 
     @classmethod
-    def in_context(cls) -> 'Settings':
-        """
-        factory method to init Settings with values from corresponding .env file
-        """
-        #asked_or_current = env or cls().context
+    def in_context(cls, env: Optional[EnvContext] = None) -> 'Settings':
+        asked_or_current = env or cls().context
         return cls(
             _env_file=utils.file.abs_path_from_project(
-                #f'config.{asked_or_current}.env'
-                'config.env'
+                f'config.{asked_or_current}.env'
             )
         )
 
