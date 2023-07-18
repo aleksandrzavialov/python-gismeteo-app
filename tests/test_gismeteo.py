@@ -11,7 +11,7 @@ from allure_commons.types import Severity
 @allure.severity(Severity.BLOCKER)
 @allure.title('Search for a city')
 @allure.story('Search')
-def test_search_city(self):
+def test_search_city():
     with allure.step("Search for a city"):
         browser.element((AppiumBy.ID, "ru.gismeteo.gismeteo:id/action_search")).click()
         browser.element((AppiumBy.ID, "ru.gismeteo.gismeteo:id/search_src_text")).type('Moscow')
@@ -33,7 +33,7 @@ def test_search_city(self):
 @allure.severity(Severity.CRITICAL)
 @allure.title('Set up application language')
 @allure.story('Settings')
-def test_change_language_settings(self):
+def test_change_language_settings():
     with allure.step("Open language settings"):
         browser.element((AppiumBy.ACCESSIBILITY_ID, 'More options')).click()
         browser.element((AppiumBy.XPATH, '//android.widget.LinearLayout[3]')).click()
@@ -42,7 +42,7 @@ def test_change_language_settings(self):
         browser.element((AppiumBy.XPATH, '//*[contains(@text,"Language")]')).click()
         browser.element((AppiumBy.XPATH, '//*[contains(@text,"Русский")]')).click()
 
-   with allure.step('Check changes on main page'):
+    with allure.step('Check changes on main page'):
         browser.driver.back()
         browser.element((AppiumBy.XPATH, '//*[contains(@text,"ПОБЛИЗОСТИ")]')).should(be.visible)
 
@@ -53,7 +53,7 @@ def test_change_language_settings(self):
 @allure.severity(Severity.CRITICAL)
 @allure.title('Set up permissions')
 @allure.story('Settings')
-def test_deny_request_access(self):
+def test_deny_request_access():
     with allure.step("Open permissions dialog"):
         browser.element((AppiumBy.XPATH, '//*[contains(@text,"NEARBY")]')).click()
         browser.element((AppiumBy.ID, 'ru.gismeteo.gismeteo:id/btnEnableLocationRequest')).click()
@@ -72,7 +72,7 @@ def test_deny_request_access(self):
 @allure.severity(Severity.NORMAL)
 @allure.title('Set and unset city as a favorite')
 @allure.story('Favorite')
-def test_manage_favorite(self):
+def test_manage_favorite():
     with allure.step("Open favorite menu"):
         browser.element((AppiumBy.XPATH, '//*[contains(@text,"FAVORITES")]')).click()
         browser.element((AppiumBy.ID, "ru.gismeteo.gismeteo:id/fabAdd")).click()
@@ -99,7 +99,7 @@ def test_manage_favorite(self):
 @allure.severity(Severity.MINOR)
 @allure.title('Share application')
 @allure.story('Share')
-def test_check_share_options(self):
+def test_check_share_options():
     with allure.step("Open share menu"):
         browser.element((AppiumBy.ACCESSIBILITY_ID, 'More options')).click()
         browser.element((AppiumBy.XPATH, '//android.widget.LinearLayout[1]')).click()
@@ -107,6 +107,3 @@ def test_check_share_options(self):
     with allure.step("Check share options"):
         browser.element((AppiumBy.ID, 'android:id/title')).should(have.text('Share'))
         browser.all((AppiumBy.ID, 'android:id/text1')).should(have.size(3))
-
-
-
