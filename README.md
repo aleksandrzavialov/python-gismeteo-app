@@ -1,4 +1,4 @@
-## Проект мобильных автотестов для приложение GisMeteo на операционной системе Android
+## Проект мобильных автотестов для приложения GisMeteo на операционной системе Android
 
 
 ### Основные моменты
@@ -11,20 +11,20 @@
 
 ## Используемые технологии
 <p  align="center">
-  <code><img width="5%" title="Python" src="images/logo/python.png"></code>
-  <code><img width="5%" title="Pycharm" src="images/logo/pycharm.png"></code>
-  <code><img width="5%" title="Selene" src="images/logo/selene.png"></code>
-  <code><img width="5%" title="Selenium" src="images/logo/selenium.png"></code>
-  <code><img width="5%" title="Pytest" src="images/logo/pytest.png"></code>
-  <code><img width="5%" title="Allure Report" src="images/logo/allure_report.png"></code>
-  <code><img width="5%" title="Allure TestOps" src="images/logo/allure_testops.png"></code>
-  <code><img width="5%" title="Jira" src="images/logo_stacks/jira.png"></code>
-  <code><img width="5%" title="Telegram" src="images/logo/tg.png"></code>
-  <code><img width="5%" title="GitHub" src="images/logo/github.png"></code>
-  <code><img width="5%" title="Jenkins" src="images/logo/jenkins.png"></code>
-  <code><img width="5%" title="AndroidStudio" src="images/logo/android_studio.png"></code>
-  <code><img width="5%" title="Appium" src="images/logo/appium.png"></code>
-  <code><img width="5%" title="BrowserStack" src="images/logo/browserstack.png"></code>
+  <code><img width="5%" title="Python" src="images/techs/python.png"></code>
+  <code><img width="5%" title="Pycharm" src="images/techs/pycharm.png"></code>
+  <code><img width="5%" title="Selene" src="images/techs/selene.png"></code>
+  <code><img width="5%" title="Selenium" src="images/techs/selenium.png"></code>
+  <code><img width="5%" title="Pytest" src="images/techs/pytest.png"></code>
+  <code><img width="5%" title="Allure Report" src="images/techs/allure_report.png"></code>
+  <code><img width="5%" title="Allure TestOps" src="images/techs/allure_testops.png"></code>
+  <code><img width="5%" title="Jira" src="images/techs/jira.png"></code>
+  <code><img width="5%" title="Telegram" src="images/techs/tg.png"></code>
+  <code><img width="5%" title="GitHub" src="images/techs/github.png"></code>
+  <code><img width="5%" title="Jenkins" src="images/techs/jenkins.png"></code>
+  <code><img width="5%" title="AndroidStudio" src="images/techs/android_studio.png"></code>
+  <code><img width="5%" title="Appium" src="images/techs/appium.png"></code>
+  <code><img width="5%" title="BrowserStack" src="images/techs/browserstack.png"></code>
 </p>
 
 ## Реализованные тест-кейсы
@@ -36,7 +36,7 @@
 - Меню "Поделиться" 
 
 ## Настройка проекта для удаленного запуска
-- Создать аккаунт на browserstack.com и загрузить apk-файл приложения <img src="images/screens/browserstack_load.png" alt="Browserstack"/>
+- Создать аккаунт на browserstack и загрузить apk-файл приложения <img src="images/screens/browserstack_load.png" alt="Browserstack"/>
 
 - Настроить запуск тестов из [Jenkins](https://jenkins.autotests.cloud/job/azavialov-qa-guru-python-5-mobile/) и нажать "Собрать сейчас"
 <p><img src="images/screens/jenkins_build.png" alt="Jenkins"/></p>
@@ -45,8 +45,8 @@
 <p><img src="images/screens/browserstack_session.png" alt="Browserstack session"/></p>
 <p><img src="images/screens/jenkins_allure.png" alt="Jenkins Allure report"/></p>
 
-- Во вложениях Allure отчетах прикрепляются видео и скриншоты
-<p><img src="images/screenshots/allure_attachment.png" alt="Allure Attachments"/></p>
+- Во вложениях Allure прикрепляются видео и скриншоты
+<p><img src="images/screens/allure_attachment.png" alt="Allure Attachments"/></p>
 
 ## Настройка проекта для локального запуска
 
@@ -75,16 +75,20 @@ env -S "context=emulation" pytest . --alluredir allure-results/ - для зап�
 После выполнения в Allure Test Ops создаются тест-кейсы с уже заполненными шагами, которые берутся из лямбда-степов внутри тест-кейсов
 <img src="images/screens/test_ops_cases.png" alt="Allure Test Ops"/>
 В этом же списке можно вручную добавить ручной тест-кейс
+
 Суммарная информация по автоматизированным и ручным кейсам доступна в дашборде
 <img src="images/screens/test_ops_dashboard.png" alt="Allure Test Ops Dashboard"/>
 
 ## Интеграция с Jira
 К уже созданной в Jira задаче в разделе сьютов Allure Test Ops можно привязать тест-кейсы
-<img src="images/screens/test_ops_dashboard.png" alt="Link Test Ops test cases to Jira"/>
+<img src="images/screens/test_ops_link_cases_jira.png" alt="Link Test Ops test cases to Jira"/>
+
 Из раздела Launches можно привязать тестовый прогон
 <img src="images/screens/test_ops_launches.png" alt="Link Test Ops launch to Jira"/>
 
+<img src="images/screens/jira.png" alt="Jira"/>
+
 ## Настроена отправка отчета в Telegram
 
-<img src="images/screens/Ttelegram.png" alt="Telegram"/>
+<img src="images/screens/telegram.png" alt="Telegram"/>
 
