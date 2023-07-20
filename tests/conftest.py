@@ -9,15 +9,15 @@ import config
 @pytest.fixture(scope='function', autouse=True)
 def driver_management():
     browser.config.timeout = config.settings.timeout
-    with allure.step('set up app session'):
+    with allure.step('Set up app session'):
         browser.config.driver = webdriver.Remote(
             config.settings.remote_url, options=config.settings.driver_options
         )
 
     yield
+    with allure.step('Closing session'):
+        if config.settings.run_on_browserstack:
+            attach_video(browser)
+            add_screenshot(browser)
 
-    if config.settings.run_on_browserstack:
-        attach_video(browser)
-        add_screenshot(browser)
-
-    browser.quit()
+        browser.quit()
