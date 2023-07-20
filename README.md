@@ -2,15 +2,15 @@
 
 
 ### Основные моменты
-<p>- Тест-кейсы разработаны на языке Python с использованием фреймворков Selene, Pytest. 
-<p>- Используется Allure Reports для  генерации отчетности и интерграции с системой тест-менеджмента Allure Test Ops
-<p>- Реализована интеграция с системой трекинга ошибок Jira
-<p>- Оповещение о результатах выполнения тестов приходят в Telegram
-<p>- Тесты можно запустить как локально c помощью эмулятора устройства, так и на удаленной ферме устройств с использованием CI - системы Jenkins
+- Тест-кейсы разработаны на языке Python с использованием фреймворков Selene, Pytest. 
+- Используется Allure Reports для  генерации отчетности и интерграции с системой тест-менеджмента Allure Test Ops
+- Реализована интеграция с системой трекинга ошибок Jira
+- Оповещение о результатах выполнения тестов приходят в Telegram
+- Тесты можно запустить как локально c помощью эмулятора устройства, так и на удаленной ферме устройств с использованием CI - системы Jenkins
 
 
 ## Используемые технологии
-<p  align="center">
+<p align="center">
   <code><img width="5%" title="Python" src="images/techs/python.png"></code>
   <code><img width="5%" title="Pycharm" src="images/techs/pycharm.png"></code>
   <code><img width="5%" title="Selene" src="images/techs/selene.png"></code>
@@ -36,14 +36,15 @@
 - Меню "Поделиться" 
 
 ## Настройка проекта для удаленного запуска
-- Создать аккаунт на browserstack и загрузить apk-файл приложения <img src="images/screens/browserstack_load.png" alt="Browserstack"/>
+- Создать аккаунт на browserstack и загрузить apk-файл приложения
+<img src="images/screens/browserstack_load.png" alt="Browserstack"/>
 
 - Настроить запуск тестов из [Jenkins](https://jenkins.autotests.cloud/job/azavialov-qa-guru-python-5-mobile/) и нажать "Собрать сейчас"
-<p><img src="images/screens/jenkins_build.png" alt="Jenkins"/></p>
+<img src="images/screens/jenkins_build.png" alt="Jenkins"/>
 
 - Информация о прохождении тестов доступна в BrowserStack и Allure - отчете сборки
-<p><img src="images/screens/browserstack_session.png" alt="Browserstack session"/></p>
-<p><img src="images/screens/jenkins_allure.png" alt="Jenkins Allure report"/></p>
+<img src="images/screens/browserstack_session.png" alt="Browserstack session"/>
+<img src="images/screens/jenkins_allure.png" alt="Jenkins Allure report"/>
 
 - Во вложениях Allure прикрепляются видео и скриншоты
 <p><img src="images/screens/allure_attachment.png" alt="Allure Attachments"/></p>
@@ -59,36 +60,37 @@
 6. Для работы с эмуляцией установить Android Studio, Appium server, Appium inspector
    - Запустить Android Studio, открыть Virtual Device Manager и скачать образ Google Pixel 4 на Android 11
    - Запустить устройство, Appim Server, Appium Inspector, настроить Desired Capabilities в Appium Inspector
-7. Для выбора среды запуска либо передать аргумент context при запуске тестов из командной стройки
-env -S "context=browserstack" pytest . --alluredir allure-results/ - для запуска тестов в browserstack
-env -S "context=emulation" pytest . --alluredir allure-results/ - для запуска тестов в эмуляторе
-8 Получить Allure отчет командой allure serve
+7. Для выбора среды запуска либо передать аргумент context при запуске тестов из командной строки
+   - env -S "context=browserstack" pytest . --alluredir allure-results/ - для запуска тестов в browserstack
+   - env -S "context=emulation" pytest . --alluredir allure-results/ - для запуска тестов в эмуляторе
+8. Получить Allure отчет командой allure serve
 
 
 ## Возможности Allure Reports
 - В разделе Overview отображается сводная информация
 <img src="images/screens/allure_overview.png" alt="Allure Overview"/>
+
 - В разделе Graphs доступна статистика прохождения тест-кейсов
 <img src="images/screens/allure_graphs.png" alt="Allure Graphs"/>
 
 ## Интеграция с Allure TestOps 
-После выполнения в Allure Test Ops создаются тест-кейсы с уже заполненными шагами, которые берутся из лямбда-степов внутри тест-кейсов
+- После выполнения в Allure Test Ops создаются тест-кейсы с уже заполненными шагами, которые берутся из лямбда-степов внутри тест-кейсов
 <img src="images/screens/test_ops_cases.png" alt="Allure Test Ops"/>
 В этом же списке можно вручную добавить ручной тест-кейс
 
-Суммарная информация по автоматизированным и ручным кейсам доступна в дашборде
+- Суммарная информация по автоматизированным и ручным кейсам доступна в дашборде
 <img src="images/screens/test_ops_dashboard.png" alt="Allure Test Ops Dashboard"/>
 
 ## Интеграция с Jira
-К уже созданной в Jira задаче в разделе сьютов Allure Test Ops можно привязать тест-кейсы
+- К уже созданной в Jira задаче в разделе сьютов Allure Test Ops можно привязать тест-кейсы
 <img src="images/screens/test_ops_link_cases_jira.png" alt="Link Test Ops test cases to Jira"/>
 
-Из раздела Launches можно привязать тестовый прогон
+- Из раздела Launches можно привязать тестовый прогон
 <img src="images/screens/test_ops_launches.png" alt="Link Test Ops launch to Jira"/>
 
+- Тикет в Jira
 <img src="images/screens/jira.png" alt="Jira"/>
 
 ## Настроена отправка отчета в Telegram
 
 <img src="images/screens/telegram.png" alt="Telegram"/>
-
