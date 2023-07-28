@@ -39,12 +39,18 @@
 - Создать аккаунт на browserstack и загрузить apk-файл приложения
 <img src="images/screens/browserstack_load.png" alt="Browserstack"/>
 
-- Настроить запуск тестов из [Jenkins](https://jenkins.autotests.cloud/job/azavialov-qa-guru-python-5-mobile/) и нажать "Собрать сейчас"
+- Настроить запуск тестов из [Jenkins](https://jenkins.autotests.cloud/job/azavialov-qa-guru-python-5-mobile/) и нажать "Собрать сейчас". Пример завершенной сборки по [ссылке](https://jenkins.autotests.cloud/job/azavialov-qa-guru-python-5-mobile/10/).
 <img src="images/screens/jenkins_build.png" alt="Jenkins"/>
 
 - Информация о прохождении тестов доступна в BrowserStack и Allure - отчете сборки
 <img src="images/screens/browserstack_session.png" alt="Browserstack session"/>
 <img src="images/screens/jenkins_allure.png" alt="Jenkins Allure report"/>
+Пример видео с BrowserStack
+
+
+
+https://github.com/aleksandrzavialov/python-gismeteo-app/assets/129891760/1ee5d728-7d47-4199-b854-473503e91c71
+
 
 - Во вложениях Allure прикрепляются видео и скриншоты
 <p><img src="images/screens/allure_attachment.png" alt="Allure Attachments"/></p>
